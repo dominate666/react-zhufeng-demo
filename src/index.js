@@ -2,7 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "@/index.less";
-import { symbol } from "prop-types";
+import { createElement } from "./jsxHandle";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 let styObj = {
   color: "orange",
@@ -15,14 +16,13 @@ root.render(
 );
 
 // 编译后的结果
-let result = React.createElement(
+let result = createElement(
   React.Fragment,
   null,
-  React.createElement("h2", {
+  createElement("h2", {
     className: "title",
     style: styObj,
   })
 );
 
-console.log(React.Fragment);
 console.log(result);
