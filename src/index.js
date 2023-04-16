@@ -4,34 +4,25 @@ import ReactDOM from "react-dom/client";
 import "@/index.less";
 import { symbol } from "prop-types";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let list = [
-  {
-    id: 1,
-    title: "11",
-  },
-  {
-    id: 2,
-    title: "22",
-  },
-];
+let styObj = {
+  color: "orange",
+  fontSize: "50px",
+};
 root.render(
   <>
-    <h1>今日新闻</h1>
-    <ul>
-      {list.map((item, index) => {
-        return (
-          <li key={item.id}>
-            <p>
-              {item.id}
-              {item.title}
-            </p>
-          </li>
-        );
-      })}
-    </ul>
-    {/* new Array(5)  稀疏数组不能使用foreach方法,fill后变成密集数组 */}
-    {new Array(5).fill(null).map((_, index) => {
-      return <button key={index}>按钮{index + 1}</button>;
-    })}
+    <h2 className="title" style={styObj}></h2>
   </>
 );
+
+// 编译后的结果
+let result = React.createElement(
+  React.Fragment,
+  null,
+  React.createElement("h2", {
+    className: "title",
+    style: styObj,
+  })
+);
+
+console.log(React.Fragment);
+console.log(result);
